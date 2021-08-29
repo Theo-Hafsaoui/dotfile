@@ -1,0 +1,42 @@
+#Config file for Alacritty
+#Theo.h
+#
+#
+window:
+    title: Alacritty
+    class:
+      instance: Alacritty
+      general: Alacritty
+    font:
+      normal:
+        family: Source Code Pro
+        style: Regular
+      bold:
+        family: Source Code Pro
+        style: Bold
+      italic:
+        family: Source Code Pro
+        style: italic
+
+
+              
+
+      
+
+
+colors:
+  primary:
+      background: '#101213'
+      foreground: '#EEEEEE'
+  normal:
+    black:   '#101213'
+    red:     '#ff6c6b'
+    green:   '#98be65'
+    yellow:  '#da8548'
+    blue:    '#51afef'
+    magenta: '#c678dd'
+    cyan:    '#d4b48b'
+    white:   '#202328'
+  background_opacity: 0.5
+
+
