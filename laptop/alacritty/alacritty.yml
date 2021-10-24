@@ -2,21 +2,25 @@
 #Theo.h
 #
 #
+
+shell:
+    program: /usr/bin/fish
 window:
     title: Alacritty
     class:
       instance: Alacritty
       general: Alacritty
-    font:
-      normal:
-        family: Source Code Pro
-        style: Regular
-      bold:
-        family: Source Code Pro
-        style: Bold
-      italic:
-        family: Source Code Pro
-        style: italic
+font:
+  size: 6
+  normal:
+    family: Source Code Pro
+    style: Regular
+  bold:
+    family: Source Code Pro
+    style: Bold
+  italic:
+    family: Source Code Pro
+    style: italic
 
 
               
@@ -26,10 +30,10 @@ window:
 
 colors:
   primary:
-      background: '#101213'
+      background: '#262626'
       foreground: '#EEEEEE'
   normal:
-    black:   '#101213'
+    black:   '#262626'
     red:     '#ff6c6b'
     green:   '#98be65'
     yellow:  '#da8548'
