@@ -33,8 +33,8 @@ nnoremap <Leader>O O<Esc>^Da
 " shortcute to desactivate hightlight
 nnoremap <silent> <C-p> :<C-u>nohlsearch<CR><C-l>
 
-" Nerdtree keybinding
-nmap <silent> <F1> :NERDTreeToggle<CR>
+" FN keybinding
+nmap <silent> <F1> :CocCommand explorer<CR>
 nmap <silent> <F3> :Startify<CR>
 
 "Quickfix list navigation
@@ -42,5 +42,17 @@ map <A-.> :cn<CR>
 map <A-,> :cp<CR>
 map <A-/> :cclose<CR>
 
-"Better way to change to norm mod in a term
+"Make shortcute
+nnoremap <C-m> :make<CR>
+"Term with fish in vertical split
+nnoremap <C-t> ::vsplit term://fish<CR>
+
+"telescope mappings
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+"Latex
+autocmd FileType python map <buffer> <F12> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+"Term
 tnoremap <Esc> <C-\><C-n>

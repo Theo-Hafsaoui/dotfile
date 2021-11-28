@@ -41,6 +41,7 @@ let g:startify_fortune_use_unicode = 1
 let g:startify_session_persistence = 1
 let g:startify_enable_special = 0
 let g:startify_bookmarks = [
-            \ { 'l': '~/Documents/License GIT' },
+            \ { 'l': '~/Documents/License' },
             \ { 'i': '~/.config/nvim/init.vim' },
+            \ { 'w': '~/.config/i3/config' },
             \ ]
