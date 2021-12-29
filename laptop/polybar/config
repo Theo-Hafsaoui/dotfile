@@ -15,9 +15,9 @@
 background = #222
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
+foreground = #ebdbb2
 foreground-alt = #555
-primary = #afb760
+primary = #d79921
 secondary = #e60053
 alert = #bd2c40
 
@@ -249,7 +249,7 @@ time-alt = %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${primary}
-format-underline = #afb760
+format-underline = #fe8019
 
 label = %date% %time%
 
@@ -260,7 +260,7 @@ adapter = ADP1
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging-underline = #fe8019
 
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
@@ -297,19 +297,19 @@ label-muted = ﱝ
 
 bar-volume-width = 10
 
-bar-volume-foreground-0 = #afb760
+bar-volume-foreground-0 = #d79921
 
-bar-volume-foreground-1 = #afb760
+bar-volume-foreground-1 = #d79921
 
-bar-volume-foreground-2 = #afb760
+bar-volume-foreground-2 = #d79921
 
-bar-volume-foreground-3 = #afb760
+bar-volume-foreground-3 = #d79921
 
-bar-volume-foreground-4 = #afb760
+bar-volume-foreground-4 = #d79921
 
-bar-volume-foreground-5 = #afb760
+bar-volume-foreground-5 = #d79921
 
-bar-volume-foreground-6 = #afb760
+bar-volume-foreground-6 = #d79921
 
 bar-volume-gradient = false
 
