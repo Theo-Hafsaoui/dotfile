@@ -33,6 +33,11 @@ set timeoutlen=500                      " By default timeoutlen is 1000 ms
 set formatoptions-=cro                  " Stop newline continution of comments
 set autochdir                           " Your working directory will always be the same as your working directory
 set termguicolors                       "Enable nice color for tab
+set history=100                         "History of size 100
+set undolevels=1000                     "enable undo tree of size 1000
+set undofile                            "enable persistant undo
+set undodir=~/.vim/.undoFiles           "set the path for persistant undo
+set viminfo='100,f1                     "save the marks and jumps after close
 let g:airline_powerline_fonts = 1       "Unicode for powerline
 
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
