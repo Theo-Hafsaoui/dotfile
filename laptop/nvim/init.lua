@@ -31,3 +31,4 @@
 
 require('hafsaoui.general')
 require('hafsaoui.key')
+require('hafsaoui.plugin')
