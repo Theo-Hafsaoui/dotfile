@@ -1,4 +1,3 @@
-print('test')
 local status, packer = pcall(require, "packer")
 --might not work
 if (not status) then
@@ -9,8 +8,10 @@ end
 vim.cmd [[packadd packer.nvim]]
 
 packer.startup(function(use)
-  use 'wbthomason/packer.nvim'
-	use {'ellisonleao/gruvbox.nvim',
-				opt=true,
-				 require('hafsaoui.plugin_setting.gruvbox')}
+		use 'wbthomason/packer.nvim'		--plugin manager for neovim
+		use 'ellisonleao/gruvbox.nvim'		--color theme
+		use {								--powerline in lua
+				'nvim-lualine/lualine.nvim',
+				requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+		}
 	end)
