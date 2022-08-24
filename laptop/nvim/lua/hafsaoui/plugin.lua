@@ -14,5 +14,15 @@ packer.startup(function(use)
 				'nvim-lualine/lualine.nvim',
 				requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 		}
-		 use 'neovim/nvim-lspconfig' 		-- configurations for Nvim LSP
+		use 'neovim/nvim-lspconfig' 		-- configurations for Nvim LSP
+		use 'onsails/lspkind-nvim' 			-- add pictograms to lsp
+		use 'hrsh7th/cmp-buffer' 			-- nvim-cmp source for buffer words
+		use 'hrsh7th/cmp-nvim-lsp' 			-- nvim-cmp source for neovim's built-in LSP
+		use 'hrsh7th/nvim-cmp' 				-- Completion
+		use 'L3MON4D3/LuaSnip'				-- snipet engine
+		use "rafamadriz/friendly-snippets"	-- various snipet for various language
+		use {
+				'nvim-treesitter/nvim-treesitter',
+				run = ':TSUpdate'
+		}
 	end)
