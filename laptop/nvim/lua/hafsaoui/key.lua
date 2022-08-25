@@ -3,10 +3,14 @@
 local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
+vim.g.mapleader = " "
 
 -- meta
 keymap("n", "<C-s>", ":w<CR>", opts)
 keymap("n", "<C-p>", ":<C-u>nohlsearch<CR><C-l>", opts)
+
+
+keymap('n', 'x', '"_x', opts)
 
 -- Make and Quickfixlist
 keymap("n", "<C-m>", ":make<CR>", opts)
@@ -26,6 +30,16 @@ keymap("n", "<M-h>", ":vertical resize +2<CR>", opts)
 
 -- Terminal
 keymap("n", "<C-t>", "::vsplit term://fish<CR>", opts)
+
+-- Telescope
+keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
+--nnoremap  <cmd>
+--keymap("n", "", "", opts)
+--nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+--keymap("n", "", "", opts)
+--nnoremap <leader>fb <cmd>Telescope buffers<cr>
+--keymap("n", "", "", opts)
+--nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 
 

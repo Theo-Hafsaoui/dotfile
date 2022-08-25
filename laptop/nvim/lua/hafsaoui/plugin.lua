@@ -1,5 +1,6 @@
 local status, packer = pcall(require, "packer")
 --might not work
+
 if (not status) then
 				print('packer not install: Try yay packer')
 				return
@@ -24,5 +25,13 @@ packer.startup(function(use)
 		use {
 				'nvim-treesitter/nvim-treesitter',
 				run = ':TSUpdate'
+		}
+		use "windwp/nvim-autopairs"			-- for pairing {/"/(
+		use 'windwp/nvim-ts-autotag'		-- for pairing tags in html
+		use 'nvim-lua/plenary.nvim'			-- tool for telescope
+		use {								-- telescope for search
+				'nvim-telescope/telescope.nvim', tag = '0.1.0',
+				'nvim-telescope/telescope-file-browser.nvim',
+				requires = { {'nvim-lua/plenary.nvim'} }
 		}
 	end)
