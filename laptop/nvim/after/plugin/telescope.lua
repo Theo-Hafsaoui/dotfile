@@ -46,6 +46,7 @@ telescope.setup {
   },
 }
 
+
 telescope.load_extension("file_browser")
 
 vim.keymap.set('n', '<space>rr', function()

@@ -33,13 +33,5 @@ keymap("n", "<C-t>", "::vsplit term://fish<CR>", opts)
 
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
---nnoremap  <cmd>
---keymap("n", "", "", opts)
---nnoremap <leader>fg <cmd>Telescope live_grep<cr>
---keymap("n", "", "", opts)
---nnoremap <leader>fb <cmd>Telescope buffers<cr>
---keymap("n", "", "", opts)
---nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
 
 
