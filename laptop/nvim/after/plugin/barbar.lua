@@ -39,3 +39,4 @@ map('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
 -- :BarbarDisable - very bad command, should never be used
 
 vim.cmd [[hi BufferInactiveSign guifg=#88888]]
+vim.cmd [[hi BufferCurrent guifg=#fbf1c6]]

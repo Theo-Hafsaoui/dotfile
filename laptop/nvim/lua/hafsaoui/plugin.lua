@@ -28,6 +28,7 @@ packer.startup(function(use)
 				run = ':TSUpdate'
 		}
 		use "windwp/nvim-autopairs"			-- for pairing {/"/(
+		use "dinhhuy258/git.nvim"			-- git wraper for neovim
 		use 'windwp/nvim-ts-autotag'		-- for pairing tags in html
 		use 'nvim-lua/plenary.nvim'			-- tool for telescope
 		use {								-- telescope for search
