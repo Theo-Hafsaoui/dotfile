@@ -6,6 +6,8 @@ sudo pacman -S xorg nitrogen i3-gaps rofi i3status i3lock ttf-dejavu alacritty f
 git clone git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
+cd ..
+rm -rf yay
 
 #install dotfile
 mkdir ~/.config
