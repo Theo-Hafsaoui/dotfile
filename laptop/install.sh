@@ -12,6 +12,7 @@ rm -rf yay&&
 #install dotfile
 mkdir -p ~/.config
 mv alacritty ~/.config
+mv nitrogen ~/.config
 mv fish ~/.config
 mv i3 ~/.config
 mv nvim ~/.config
