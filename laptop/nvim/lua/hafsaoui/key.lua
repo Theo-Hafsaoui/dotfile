@@ -29,7 +29,7 @@ keymap("n", "<M-l>", ":vertical resize -2<CR>", opts)
 keymap("n", "<M-h>", ":vertical resize +2<CR>", opts)
 
 -- Terminal
-keymap("n", "<C-t>", "::vsplit term://fish<CR>", opts)
+keymap("n", "<C-t>", "::vsplit term://fish --no-config<CR>", opts)
 
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)

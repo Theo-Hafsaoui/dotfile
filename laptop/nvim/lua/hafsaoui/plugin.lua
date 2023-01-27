@@ -2,7 +2,7 @@ local status, packer = pcall(require, "packer")
 --might not work
 
 if (not status) then
-				print('packer not install: Try yay packer')
+				print('packer not install: Try yay nvim-packer-git')
 				return
 end
 
@@ -11,18 +11,12 @@ vim.cmd [[packadd packer.nvim]]
 packer.startup(function(use)
 		use 'wbthomason/packer.nvim'		-- plugin manager for neovim
 		use 'ellisonleao/gruvbox.nvim'		-- color theme
-		use 'romgrk/barbar.nvim'			-- for better tab
+		use 'nvim-tree/nvim-web-devicons'	-- for nice icons
+		use 'romgrk/barbar.nvim'		-- for better tab
 		use {								-- powerline in lua
 				'nvim-lualine/lualine.nvim',
-				requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+				requires = { 'nvim-tree/nvim-web-devicons', opt = true }
 		}
-		use 'neovim/nvim-lspconfig' 		-- configurations for Nvim LSP
-		use 'onsails/lspkind-nvim' 			-- add pictograms to lsp
-		use 'hrsh7th/cmp-buffer' 			-- nvim-cmp source for buffer words
-		use 'hrsh7th/cmp-nvim-lsp' 			-- nvim-cmp source for neovim's built-in LSP
-		use 'hrsh7th/nvim-cmp' 				-- Completion
-		use 'L3MON4D3/LuaSnip'				-- snipet engine
-		use "rafamadriz/friendly-snippets"	-- various snipet for various language
 		use {
 				'nvim-treesitter/nvim-treesitter',
 				run = ':TSUpdate'
@@ -36,4 +30,29 @@ packer.startup(function(use)
 				'nvim-telescope/telescope-file-browser.nvim',
 				requires = { {'nvim-lua/plenary.nvim'} }
 		}
+		use {							--LSP from lsp-zero
+				'VonHeikemen/lsp-zero.nvim',
+				branch = 'v1.x',
+				requires = {
+						-- LSP Support
+						{'neovim/nvim-lspconfig'},             -- Required
+						{'williamboman/mason.nvim'},           -- Optional
+						{'williamboman/mason-lspconfig.nvim'}, -- Optional
+
+						-- Autocompletion
+						{'hrsh7th/nvim-cmp'},         -- Required
+						{'hrsh7th/cmp-nvim-lsp'},     -- Required
+						{'hrsh7th/cmp-buffer'},       -- Optional
+						{'hrsh7th/cmp-path'},         -- Optional
+						{'saadparwaiz1/cmp_luasnip'}, -- Optional
+						{'hrsh7th/cmp-nvim-lua'},     -- Optional
+
+						-- Snippets
+						{'L3MON4D3/LuaSnip'},             -- Required
+						{'rafamadriz/friendly-snippets'}, -- Optional
+				}
+		}
 	end)
+local lsp = require('lsp-zero')
+lsp.preset('recommended')
+lsp.setup()
