@@ -30,6 +30,13 @@ packer.startup(function(use)
 				'nvim-telescope/telescope-file-browser.nvim',
 				requires = { {'nvim-lua/plenary.nvim'} }
 		}
+		use {  								--Nice startup menu
+				"startup-nvim/startup.nvim",
+				requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
+				config = function()
+						require"startup".setup()
+				end
+		}
 		use {							--LSP from lsp-zero
 				'VonHeikemen/lsp-zero.nvim',
 				branch = 'v1.x',
