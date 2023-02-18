@@ -13,13 +13,13 @@ window:
 font:
   size: 6
   normal:
-    family: Source Code Pro
+    family: JetBrainsMono Nerd Font
     style: Regular
   bold:
-    family: Source Code Pro
+    family: JetBrainsMono Nerd Font
     style: Bold
   italic:
-    family: Source Code Pro
+    family: JetBrainsMono Nerd Font
     style: italic
 
 
