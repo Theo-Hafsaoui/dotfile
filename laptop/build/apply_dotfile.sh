@@ -5,7 +5,7 @@ for dotfile in ${ListOfDotfile[@]};do
 		then
 				rm -rf $HOME/.config/$dotfile
 		fi
-		cp -rf ./$dotfile $HOME/.config/
+		cp -rf ../$dotfile $HOME/.config/
 done
-cp .gitconfig $HOME/.gitconfig
+cp ../.gitconfig $HOME/.gitconfig
 
