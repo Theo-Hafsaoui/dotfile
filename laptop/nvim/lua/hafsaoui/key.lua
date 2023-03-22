@@ -7,8 +7,7 @@ vim.g.mapleader = " "
 
 -- meta
 keymap("n", "<C-s>", ":w<CR>", opts)
-keymap("n", "<C-p>", "<C-u>nohlsearch<CR><C-l>", opts)
-keymap("n", "<C-p>", ":<C-u>nohlsearch<CR><C-l>", opts)
+keymap("n", "<C-p>", ":noh<CR>", opts)
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 

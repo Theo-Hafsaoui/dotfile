@@ -12,7 +12,8 @@ packer.startup(function(use)
 		use 'wbthomason/packer.nvim'		-- plugin manager for neovim
 		use 'ellisonleao/gruvbox.nvim'		-- color theme
 		use 'nvim-tree/nvim-web-devicons'	-- for nice icons
-		use 'romgrk/barbar.nvim'		-- for better tab
+		use 'skywind3000/asyncrun.vim'	    -- to have asynchrous ex cmd
+		use 'romgrk/barbar.nvim'			-- for better tab
 		use {								-- powerline in lua
 				'nvim-lualine/lualine.nvim',
 				requires = { 'nvim-tree/nvim-web-devicons', opt = true }
