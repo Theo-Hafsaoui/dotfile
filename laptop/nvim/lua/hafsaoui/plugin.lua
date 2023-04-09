@@ -40,13 +40,12 @@ packer.startup(function(use)
 		}
 		use {							--LSP from lsp-zero
 				'VonHeikemen/lsp-zero.nvim',
-				branch = 'v1.x',
+				branch = 'v2.x',
 				requires = {
 						-- LSP Support
 						{'neovim/nvim-lspconfig'},             -- Required
 						{'williamboman/mason.nvim'},           -- Optional
 						{'williamboman/mason-lspconfig.nvim'}, -- Optional
-
 						-- Autocompletion
 						{'hrsh7th/nvim-cmp'},         -- Required
 						{'hrsh7th/cmp-nvim-lsp'},     -- Required
@@ -54,7 +53,6 @@ packer.startup(function(use)
 						{'hrsh7th/cmp-path'},         -- Optional
 						{'saadparwaiz1/cmp_luasnip'}, -- Optional
 						{'hrsh7th/cmp-nvim-lua'},     -- Optional
-
 						-- Snippets
 						{'L3MON4D3/LuaSnip'},             -- Required
 						{'rafamadriz/friendly-snippets'}, -- Optional
