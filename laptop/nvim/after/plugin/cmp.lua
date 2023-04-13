@@ -14,6 +14,7 @@ local cmp = require('cmp')
 cmp.setup({
 	sources = {
 		{ name = 'path' },
+		{ name = 'copilot' },
 		{ name = 'nvim_lsp' },
 		{ name = 'buffer',  keyword_length = 3 },
 		{ name = 'luasnip', keyword_length = 2 },
