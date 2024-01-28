@@ -1,0 +1,47 @@
+#Config file for Alacritty
+#Theo.h
+
+[shell]
+program = "/usr/bin/fish"
+
+[window]
+title = "Alacritty"
+
+  [window.class]
+  instance = "Alacritty"
+  general = "Alacritty"
+
+[font]
+size = 6
+
+  [font.normal]
+  family = "JetBrainsMono Nerd Font"
+  style = "Regular"
+
+  [font.bold]
+  family = "JetBrainsMono Nerd Font"
+  style = "Bold"
+
+  [font.italic]
+  family = "JetBrainsMono Nerd Font"
+  style = "italic"
+
+[colors]
+  [colors.primary]
+  background = "#2e3440"
+  foreground = "#e5e9f0"
+
+  [colors.normal]
+  black = "#2e3440"
+  red = "#bf616a"
+  green = "#a3be8c"
+  yellow = "#ebcb8b"
+  blue = "#81a1c1"
+  cyan = "#88c0d0"
+  magenta = "#b48ead"
+  white = "#eceff4"
+
+[keyboard]
+bindings = [
+   { key = "Return", mods = "Control|Shift", action = "SpawnNewInstance" }
+]
