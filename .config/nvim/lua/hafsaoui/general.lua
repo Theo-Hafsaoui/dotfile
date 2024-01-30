@@ -7,7 +7,12 @@ o.fileencoding = 'utf-8'		  	  -- encoding written in the file
 vim.opt.shell = 'fish'		          -- better shell
 o.wrap = false                        -- display lines as one long line
 o.cmdheight = 2                       -- more space in the neovim command line for displaying messages
-o.tabstop = 4				          -- insert two space for tab
+--Tabulation
+o.tabstop = 8				          -- tab character look like 8 space
+o.expandtab = true                    -- force to only use space for tab
+vim.o.softtabstop = 4                 -- 4 space instead of tab
+vim.o.shiftwidth = 4 				  -- 4 spaces inserted when indenting
+
 o.scrolloff = 8                       -- keep thing center
 o.history = 100				          -- history of size 100
 o.undofile = true                     -- enable persistent undo

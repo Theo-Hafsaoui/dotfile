@@ -27,7 +27,7 @@
 -- https://github.com/Theo-Hafsaoui/dotfile
 -- 
 -- resulte of the fusion of better dotfile, this neovim instance is even slower than
--- you might think but ehhh, it still 100x faster than emacs.
+-- you might think but ehhh, it still 100x faster than launching emacs.
 
 require('hafsaoui.general')
 require('hafsaoui.key')

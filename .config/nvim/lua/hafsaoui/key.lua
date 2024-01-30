@@ -26,6 +26,7 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 keymap("n", "<M-k>", ":resize +2<CR>", opts)
+keymap("n", "<C-w>", ":bd <CR>", opts)
 keymap("n", "<M-j>", ":resize -2<CR>", opts)
 keymap("n", "<M-l>", ":vertical resize -2<CR>", opts)
 keymap("n", "<M-h>", ":vertical resize +2<CR>", opts)
@@ -35,5 +36,7 @@ keymap("n", "<C-t>", "::vsplit term://fish --no-config<CR>", opts)
 
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
+keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
+keymap("n", "<leader>of", ":Telescope oldfiles<cr>", opts)
 
 

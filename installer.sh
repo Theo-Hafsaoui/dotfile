@@ -5,7 +5,8 @@ usage() { echo "No correct flag given" 1>&2; exit 1; }
 install_all_dotfile() {
     mkdir -p ~/.config
     for f in ./.config/*; do
-      mv  "$f" ~/.config/
+      rm -f ~/.config/"$f"
+      cp -r "$f" ~/.config/
     done
 
 }

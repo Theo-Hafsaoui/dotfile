@@ -1,66 +1,51 @@
-local status, packer = pcall(require, "packer")
---might not work
+local root = vim.fn.fnamemodify("./.repro", ":p")
 
-if (not status) then
-	print('packer not install: Try yay nvim-packer-git')
-	return
+-- set stdpaths to use .repro
+for _, name in ipairs({ "config", "data", "state", "cache" }) do
+    vim.env[("XDG_%s_HOME"):format(name:upper())] = root .. "/" .. name
 end
 
-vim.cmd [[packadd packer.nvim]]
+-- bootstrap lazy
+local lazypath = root .. "/plugins/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "--single-branch",
+        "https://github.com/folke/lazy.nvim.git",
+        lazypath,
+    })
+end
+vim.opt.runtimepath:prepend(lazypath)
 
-packer.startup(function(use)
-	use 'wbthomason/packer.nvim' -- plugin manager for neovim
-	use 'ellisonleao/gruvbox.nvim' -- color theme
-	use 'nvim-tree/nvim-web-devicons' -- for nice icons
-	use 'skywind3000/asyncrun.vim' -- to have asynchrous ex cmd
-	use 'romgrk/barbar.nvim'   -- for better tab
-	use {                      -- powerline in lua
-		'nvim-lualine/lualine.nvim',
-		requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-	}
-	use {
-		'nvim-treesitter/nvim-treesitter',
-		run = ':TSUpdate'
-	}
-	use "windwp/nvim-autopairs" -- for pairing {/"/(
-	use "dinhhuy258/git.nvim" -- git wraper for neovim
-	use 'windwp/nvim-ts-autotag' -- for pairing tags in html
-	use 'nvim-lua/plenary.nvim' -- tool for telescope
-	use 'zbirenbaum/copilot.lua' -- Github AI
-	use 'zbirenbaum/copilot-cmp' -- Github completion AI
-	use {                 -- telescope for search
-		'nvim-telescope/telescope.nvim', tag = '0.1.0',
-		'nvim-telescope/telescope-file-browser.nvim',
-		requires = { { 'nvim-lua/plenary.nvim' } }
-	}
-	use { --Nice startup menu
-		"startup-nvim/startup.nvim",
-		requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-		config = function()
-			require "startup".setup()
-		end
-	}
-	use { --LSP from lsp-zero
-		'VonHeikemen/lsp-zero.nvim',
-		branch = 'v2.x',
-		requires = {
-			-- LSP Support
-			{ 'neovim/nvim-lspconfig' }, -- Required
-			{ 'williamboman/mason.nvim' }, -- Optional
-			{ 'williamboman/mason-lspconfig.nvim' }, -- Optional
-			-- Autocompletion
-			{ 'hrsh7th/nvim-cmp' }, -- Required
-			{ 'hrsh7th/cmp-nvim-lsp' }, -- Required
-			{ 'hrsh7th/cmp-buffer' }, -- Optional
-			{ 'hrsh7th/cmp-path' }, -- Optional
-			{ 'saadparwaiz1/cmp_luasnip' }, -- Optional
-			{ 'hrsh7th/cmp-nvim-lua' }, -- Optional
-			-- Snippets
-			{ 'L3MON4D3/LuaSnip' }, -- Required
-			{ 'rafamadriz/friendly-snippets' }, -- Optional
-		}
-	}
-end)
-local lsp = require('lsp-zero')
-lsp.preset('recommended')
-lsp.setup()
+-- install plugins
+local plugins = {
+    "shaunsingh/nord.nvim", -- nord theme
+    "nvim-tree/nvim-web-devicons", -- for nice icons
+    "romgrk/barbar.nvim", -- for better tab
+    {
+        "nvim-lualine/lualine.nvim",
+        requires = { "nvim-tree/nvim-web-devicons", opt = true },
+    }, -- powerline in lua
+    "nvim-treesitter/nvim-treesitter", -- for syntax highlighting
+    {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
+    "neovim/nvim-lspconfig", -- for Lua support
+    {"williamboman/mason.nvim", lazy = false}, -- for Lsp manager
+    "hrsh7th/nvim-cmp", -- for auto-completion
+    "hrsh7th/cmp-nvim-lsp", -- for LSP support
+    "hrsh7th/cmp-buffer", -- for tab-completion
+    "hrsh7th/cmp-path", -- for path-completion
+    "saadparwaiz1/cmp_luasnip", -- for snippets
+    "hrsh7th/cmp-nvim-lua", -- for Lua support
+    "L3MON4D3/LuaSnip", -- for Lua snippets
+    "rafamadriz/friendly-snippets", -- for other snippets
+}
+require("lazy").setup(plugins)
+require('lsp-zero')
+local servers = require('lsp-zero').servers
+servers.pyright.enabled = true
+require("mason").setup()
+
+vim.opt.termguicolors = true
+vim.cmd([[colorscheme nord]])
