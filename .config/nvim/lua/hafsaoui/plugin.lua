@@ -1,12 +1,7 @@
-local root = vim.fn.fnamemodify("./.repro", ":p")
-
--- set stdpaths to use .repro
-for _, name in ipairs({ "config", "data", "state", "cache" }) do
-    vim.env[("XDG_%s_HOME"):format(name:upper())] = root .. "/" .. name
-end
-
+-- Plugin management with lazy
 -- bootstrap lazy
-local lazypath = root .. "/plugins/lazy.nvim"
+--
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
         "git",
@@ -17,35 +12,89 @@ if not vim.loop.fs_stat(lazypath) then
         lazypath,
     })
 end
+
 vim.opt.runtimepath:prepend(lazypath)
 
--- install plugins
 local plugins = {
     "shaunsingh/nord.nvim", -- nord theme
     "nvim-tree/nvim-web-devicons", -- for nice icons
     "romgrk/barbar.nvim", -- for better tab
+
     {
         "nvim-lualine/lualine.nvim",
         requires = { "nvim-tree/nvim-web-devicons", opt = true },
     }, -- powerline in lua
+
     "nvim-treesitter/nvim-treesitter", -- for syntax highlighting
-    {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
-    "neovim/nvim-lspconfig", -- for Lua support
-    {"williamboman/mason.nvim", lazy = false}, -- for Lsp manager
-    "hrsh7th/nvim-cmp", -- for auto-completion
-    "hrsh7th/cmp-nvim-lsp", -- for LSP support
-    "hrsh7th/cmp-buffer", -- for tab-completion
-    "hrsh7th/cmp-path", -- for path-completion
-    "saadparwaiz1/cmp_luasnip", -- for snippets
-    "hrsh7th/cmp-nvim-lua", -- for Lua support
-    "L3MON4D3/LuaSnip", -- for Lua snippets
-    "rafamadriz/friendly-snippets", -- for other snippets
+
+     --### LSP ###
+     -- for Lsp manager
+    {"williamboman/mason.nvim", lazy = false},
+    {'williamboman/mason-lspconfig.nvim'},
+
+    {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v3.x',
+        lazy = true,
+        config = false,
+        dependencies = {
+        }
+    },
+    {
+        'neovim/nvim-lspconfig',
+        dependencies = {
+            {'hrsh7th/cmp-nvim-lsp',
+                'hrsh7th/cmp-buffer',       -- Optional
+                'hrsh7th/cmp-path',         -- Optional
+                'saadparwaiz1/cmp_luasnip', -- Optional
+                'hrsh7th/cmp-nvim-lua',     -- Optional
+                -- Snippets
+                'L3MON4D3/LuaSnip',             -- Required
+                'rafamadriz/friendly-snippets', -- Optional
+
+            },
+        }
+    },
+    --### LSP ###
+
+    {-- for file search
+        'nvim-telescope/telescope.nvim',
+        dependencies = {
+            {'nvim-telescope/telescope-file-browser.nvim',
+                'nvim-lua/plenary.nvim'}
+        },
+    },
+
+    {
+        'hrsh7th/nvim-cmp',
+        dependencies = {
+            {'L3MON4D3/LuaSnip'}
+        },
+    },
+
+    {-- a nice startup screen
+        'startup-nvim/startup.nvim',
+        dependencies = {
+            {'nvim-telescope/telescope.nvim',
+                'nvim-lua/plenary.nvim'}
+        },
+    },
+
 }
+
 require("lazy").setup(plugins)
-require('lsp-zero')
-local servers = require('lsp-zero').servers
-servers.pyright.enabled = true
-require("mason").setup()
+local lsp_zero = require('lsp-zero')
+
+lsp_zero.on_attach(function(client, bufnr)
+    lsp_zero.default_keymaps({buffer = bufnr})
+end)
+
+require('mason').setup({})
+require('mason-lspconfig').setup({
+    handlers = {
+        lsp_zero.default_setup,
+    },
+})
 
 vim.opt.termguicolors = true
 vim.cmd([[colorscheme nord]])
