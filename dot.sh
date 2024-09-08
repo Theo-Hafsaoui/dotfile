@@ -19,7 +19,7 @@ install_mac_dotfile() {
     done
 }
 
-install_fedora_dotfile() {
+install_generic_distro_dotfile() {
     for f in "${fedora_dotfile[@]}";do
       rm -f ~/.config/"$f"
       cp -r "$f" ~/.config/
@@ -27,7 +27,7 @@ install_fedora_dotfile() {
 }
 
 
-while getopts "uam" arg; do
+while getopts "uamg" arg; do
     case $arg in
         u)
             echo "updating dotfiles";;
@@ -37,6 +37,9 @@ while getopts "uam" arg; do
         m)
             echo "installing for new mac"
             install_mac_dotfile;;
+        g)
+            echo "installing for generic distro"
+            install_generic_distro_dotfile;;
         *)
             usage;;
     esac

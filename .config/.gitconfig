@@ -1,5 +1,5 @@
 [user]
-	email = theo-hafsaoui@etud.univ-tln.fr
+	email = theo-hafsaoui@pm.me
 	name = Theo-Hafsaoui
 	signingkey = 424BFF3519AC8822
 [core]
@@ -7,6 +7,7 @@
 [init]
 	defaultBranch = master
 [alias]
-lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+        lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+        fpush =  push --force-with-lease
 [commit]
 	gpgsign = false
