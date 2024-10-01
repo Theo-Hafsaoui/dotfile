@@ -1,8 +1,8 @@
 #!/bin/bash
 
 usage() { echo "No correct flag given" 1>&2; exit 1; }
+fedora_dotfile=("nvim" "fish" "sway" "waybar")
 mac_dotfile=("nvim" "fish")
-fedora_dotfile=("nvim" "fish")
 
 install_all_dotfile() {
     mkdir -p ~/.config
