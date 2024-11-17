@@ -25,7 +25,7 @@ cmp.setup({
 		['<C-k>'] = cmp_action.luasnip_jump_forward(),
 		['<C-j>'] = cmp_action.luasnip_jump_backward(),
 	},
-	preselect = 'item',
+        preselect = cmp.PreselectMode.None,
 	completion = {
 		completeopt = 'menu,menuone,noinsert'
 	},
