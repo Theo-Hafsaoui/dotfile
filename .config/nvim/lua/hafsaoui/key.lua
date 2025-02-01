@@ -38,5 +38,7 @@ keymap("n", "<C-t>", "::vsplit term://fish --no-config<CR>", opts)
 keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
 keymap("n", "<leader>of", ":Telescope oldfiles<cr>", opts)
+keymap("n", "gr", "<cmd>Telescope lsp_references theme=cursor<cr>", opts)
+
 
 
