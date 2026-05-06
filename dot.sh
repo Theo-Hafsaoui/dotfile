@@ -10,6 +10,7 @@ install_all_dotfile() {
       rm -f ~/.config/"$f"
       cp -r "$f" ~/.config/
     done
+    install_font
 }
 
 install_mac_dotfile() {
@@ -17,6 +18,7 @@ install_mac_dotfile() {
       rm -f ~/.config/"$f"
       cp -r "$f" ~/.config/
     done
+    install_font
 }
 
 install_generic_distro_dotfile() {
@@ -24,6 +26,16 @@ install_generic_distro_dotfile() {
       rm -f ~/.config/"$f"
       cp -r "$f" ~/.config/
     done
+    install_font
+}
+
+install_font() {
+    mkdir -p ~/.local/share/fonts && \
+    cd ~/.local/share/fonts && \
+    curl -fLo JetBrainsMono.zip https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip && \
+    unzip JetBrainsMono.zip && \
+    rm JetBrainsMono.zip && \
+    fc-cache -fv
 }
 
 
