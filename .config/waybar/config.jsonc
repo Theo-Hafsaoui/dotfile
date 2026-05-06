@@ -7,12 +7,12 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "sway/workspaces",
-        "sway/mode",
-        "sway/scratchpad"
+        "hyprland/workspaces",
+        "hyprland/mode",
+        "hyprland/scratchpad"
     ],
     "modules-center": [
-        "sway/window"
+        "hyprland/window"
     ],
     "modules-right": [
         "pulseaudio",
@@ -20,23 +20,16 @@
         "battery",
         "clock"
     ],
-    // Modules configuration
-    // "sway/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "warp-on-scroll": false,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
+	"hyprland/workspaces": {
+    "disable-scroll": false,
+    "all-outputs": true,
+    "format": "{name}",
+    "format-icons": {},
+    "persistent-workspaces": {
+        "*": 5
+    }
+},
+
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
@@ -46,10 +39,7 @@
             "unlocked": ""
         }
     },
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "sway/scratchpad": {
+    "hyprland/scratchpad": {
         "format": "{icon} {count}",
         "show-empty": false,
         "format-icons": ["", ""],
