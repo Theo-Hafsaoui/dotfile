@@ -5,20 +5,14 @@
 }
 
 window#waybar {
-  background-color: rgba(46, 52, 64, 0.95); /* Polar Night */
-  border-bottom: 3px solid rgba(76, 86, 106, 0.5); /* Polar Night */
-  color: #eceff4; /* Snow Storm */
+  background-color: #2d353b; /* Polar Night */
+  border-bottom: 3px solid #4f585e; /* Polar Night */
   transition-property: background-color;
   transition-duration: 0.5s;
 }
 
 window#waybar.hidden {
   opacity: 0.2;
-}
-
-window#waybar.chromium {
-  background-color: #2e3440; /* Polar Night */
-  border: none;
 }
 
 button {
@@ -29,11 +23,7 @@ button {
 
 button:hover {
   background: inherit;
-  box-shadow: inset 0 -3px #eceff4; /* Snow Storm */
-}
-
-#pulseaudio:hover {
-  background-color: #ebcb8b; /* Aurora Yellow */
+  box-shadow: inset 0 -3px #a7c080; /* Snow Storm */
 }
 
 #workspaces button {
@@ -47,12 +37,12 @@ button:hover {
 }
 
 #workspaces button.active {
-  background-color: #5e81ac; /* Frost Blue */
+  background-color: #56635f; /* Frost Blue */
   box-shadow: inset 0 -3px #eceff4; /* Snow Storm */
 }
 
 #workspaces button.urgent {
-  background-color: #bf616a; /* Aurora Red */
+  background-color: #e67e80; /* Aurora Red */
 }
 
 #mode {

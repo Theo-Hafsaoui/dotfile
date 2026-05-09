@@ -4,4 +4,99 @@ configuration {
   show-icons:         true;
   icon-theme:         "Papirus";
 }
-@theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"
+
+* {
+    highlight: bold italic;
+
+   dark-bg0-hard: #272E337a;
+   dark-bg0:      #272E337a;
+   dark-bg2:      #272E337a;
+
+   dark-fg0:          #A7C080aa;
+   dark-fg1:          #ebdbb2aa;
+   dark-red-dark:     #cc241daa;
+   dark-red-light:    #fb4934aa;
+   dark-yellow-dark:  #d79921aa;
+   dark-yellow-light: #fabd2faa;
+   dark-gray:         #a89984aa;
+
+    /* Theme colors */
+   background:                  @dark-bg0-hard;
+   background-color:            @background;
+   foreground:     #272E337a;             
+
+    normal-background:           @background;
+    normal-foreground:           @foreground;
+    alternate-normal-background: @dark-bg0;
+    alternate-normal-foreground: @foreground;
+    selected-normal-background:  @dark-bg2;
+    selected-normal-foreground:  @dark-fg0;
+
+    active-background:           @dark-yellow-dark;
+    active-foreground:           @background;
+    alternate-active-background: @active-background;
+    alternate-active-foreground: @active-foreground;
+    selected-active-background:  @dark-yellow-light;
+    selected-active-foreground:  @active-foreground;
+
+    urgent-background:           @dark-red-dark;
+    urgent-foreground:           @background;
+    alternate-urgent-background: @urgent-background;
+    alternate-urgent-foreground: @urgent-foreground;
+    selected-urgent-background:  @dark-red-light;
+    selected-urgent-foreground:  @urgent-foreground;
+}
+
+window {
+    location:   center;
+    anchor:     center;
+    padding:    -0.5px;
+    border:     0px;
+    border-radius: 3px;
+    orientation: horizontal;
+}
+
+listview {
+    lines: 8;
+    spacing: 0;
+    scrollbar: false;
+}
+
+element {
+    border: 0px;
+    padding: 9px;
+	margin: 0px 10px 0px 10px;
+}
+
+element selected {
+    background-color: @selected-normal-background;
+	background: @selected-normal-background;
+    text-color: @selected-normal-foreground;
+    border: 1px;
+    border-radius: 8px;
+    padding: 6px;
+}
+
+element selected.normal {
+    background-color: #3c4841;
+}
+
+inputbar {
+    children: [ prompt, entry ];
+    border: 0px;
+}
+
+configuration {
+    display-drun: " ";
+}
+
+textbox-prompt-colon {
+    text-color: #ffffff;
+}
+
+element-text,
+entry,
+prompt,
+element-icon {
+    text-color: @dark-fg1;
+}
