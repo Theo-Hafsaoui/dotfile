@@ -40,5 +40,16 @@ keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
 keymap("n", "<leader>of", ":Telescope oldfiles<cr>", opts)
 keymap("n", "gr", "<cmd>Telescope lsp_references theme=cursor<cr>", opts)
 
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 
-
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "svelte", "typescript", "javascript", "html", "css" },
+  callback = function(ev)
+    vim.keymap.set("n", "==", function()
+      vim.cmd("silent !prettier --write " .. vim.fn.expand("%"))
+      vim.cmd("edit!")
+    end, { buffer = ev.buf, noremap = true, silent = true })
+  end,
+})
